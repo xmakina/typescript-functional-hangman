@@ -1,3 +1,4 @@
+import randomWord from 'random-word'
 import Hangman, { HangmanState, IHangman } from "./Hangman";
 
 export interface IStorage<T> {
@@ -9,13 +10,12 @@ interface HangmanStateStore {
 }
 
 export class HangmanMemoryStorage implements IStorage<HangmanState>{
-    private states: HangmanStateStore = { "xmakina@mastodon.technology": { mistakes: 1, word: "something", guesses: ['z'] } }
+    private states: HangmanStateStore = { }
 
     async Load(acct: string): Promise<HangmanState> {
-        console.log({ acct })
         const state = this.states[acct]
         if (state === null) {
-            return { mistakes: 0, word: 'new word', guesses: [] }
+            return { mistakes: 0, word: randomWord(), guesses: [] }
         }
 
         return state

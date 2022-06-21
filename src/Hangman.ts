@@ -41,7 +41,7 @@ export default function Hangman(state: HangmanState): IHangman {
                 won: progress === state.word
             })
 
-            return this;
+            return Hangman(state);
         }
     }
 
@@ -65,14 +65,14 @@ export default function Hangman(state: HangmanState): IHangman {
                 state.mistakes++
             }
 
-            return this;
+            return Hangman(state);
         }
     }
 
     function save() {
         return function save(saveFunc: (state: HangmanState) => any): IHangman {
             saveFunc(state)
-            return this;
+            return Hangman(state);
         }
     }
 
