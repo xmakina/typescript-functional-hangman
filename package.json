@@ -1,16 +1,16 @@
 {
   "name": "typescript-functional-hangman",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "A functional programming attempt at the game of Hangman",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node lib/index.js",
-    "watch": "tsc -p tsconfig.json -w",
-    "build": "tsc -p tsconfig.json",
+    "watch": "rimraf dist && tsc -p tsconfig.json -w",
+    "build": "rimraf dist && tsc -p tsconfig.json",
     "test": "mocha -r ts-node/register \"tests/**/*.spec.ts\""
   },
   "keywords": [],
-  "author": "",
+  "author": "xmakina <github@xmakina.co.uk>",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^18.0.0",
@@ -24,6 +24,7 @@
     "@types/mocha": "^9.1.1",
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
+    "rimraf": "^3.0.2",
     "ts-mockito": "^2.6.1",
     "ts-node": "^10.8.1"
   }

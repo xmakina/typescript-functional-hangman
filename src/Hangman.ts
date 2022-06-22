@@ -11,6 +11,7 @@ export interface IHangman {
 }
 
 export class HangmanOutput {
+    target: string
     progress: string
     guesses: string[]
     mistakes: number
@@ -38,7 +39,8 @@ export default function Hangman(state: HangmanState): IHangman {
                 progress: progress,
                 guesses: state.guesses,
                 mistakes: state.mistakes,
-                won: progress === state.word
+                won: progress === state.word,
+                target: state.word
             })
 
             return Hangman(state);

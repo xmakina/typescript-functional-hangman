@@ -155,6 +155,10 @@ describe('with Hangman', () => {
             it('reports the guesses so far', () => {
                 expect(reportOutput.guesses).to.include('q')
             })
+
+            it('reports the target word', () => {
+                expect(reportOutput.target).to.equal('test')
+            })
         })
 
         describe('when user guesses more than one letter', () => {
